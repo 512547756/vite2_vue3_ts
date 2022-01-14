@@ -28,7 +28,16 @@
     "vite": "^2.7.2",
     "vue-tsc": "^0.29.8"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{ts,tsx,vue,js,jsx}": "eslint --cache --fix"
+    "*.{js,jsx,vue,ts,tsx}": [
+      "yarn lint",
+      "prettier --write",
+      "git add"
+    ]
   }
 }
