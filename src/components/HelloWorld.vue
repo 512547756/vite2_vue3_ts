@@ -15,7 +15,7 @@ const count = ref(0);
     <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
   </p>
 
-  <p>See <code>README.md1</code> for more information.</p>
+  <p>See <code>README.md21</code> for more information.</p>
 
   <p>
     <a href="https://vitejs.dev/guide/features.html" target="_blank">
