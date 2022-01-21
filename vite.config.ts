@@ -3,6 +3,8 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 //@ts-ignore
 import viteCompression from "vite-plugin-compression";
+// 组件样式按需加载配置
+// import styleImport from 'vite-plugin-style-import'
 
 const resolve = (dir: string) => path.join(__dirname, dir);
 
@@ -25,6 +27,7 @@ export default defineConfig({
       scss: {
         additionalData: '@import "@/assets/style/main.scss";',
       },
+      // plugins:[ styleImport({ libs:[ { libraryName: 'ant-design-vue', esModule: true, resolveStyle: name => `ant-design-vue/es/${name}/style/index` } ] }) ]
     },
   },
   resolve: {
