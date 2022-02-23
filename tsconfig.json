@@ -11,6 +11,7 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
+    "suppressImplicitAnyIndexErrors": true,
     "paths": {
       "@/*":["src/*"]
     }
