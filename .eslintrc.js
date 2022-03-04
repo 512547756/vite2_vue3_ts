@@ -151,6 +151,7 @@ module.exports = {
     {
       files: ["src/pages/**/*.vue"],
       rules: {
+        // 处理vue文件名称单词不能只有一个的限制
         "vue/multi-word-component-names": 0,
       },
     },
