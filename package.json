@@ -12,10 +12,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vueuse/core": "^7.7.0",
     "axios": "^0.24.0",
     "naive-ui": "^2.24.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.0-rc.10",
+    "unplugin-auto-import": "^0.6.1",
+    "unplugin-vue-components": "^0.17.21",
     "vfonts": "^0.0.3",
     "vue": "^3.2.25",
     "vue-router": "4"

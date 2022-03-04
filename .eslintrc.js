@@ -13,6 +13,7 @@ module.exports = {
     "plugin:prettier/recommended",
     // eslint-config-prettier 的缩写
     "prettier",
+    "./.eslintrc-auto-import.json",
   ],
   parserOptions: {
     ecmaVersion: 12,
@@ -36,7 +37,6 @@ module.exports = {
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "no-var": "error",
     "prettier/prettier": "error",
     // 禁止出现console
     "no-console": "warn",
@@ -147,6 +147,14 @@ module.exports = {
     "no-case-declarations": "warn",
     "no-async-promise-executor": "warn",
   },
+  overrides: [
+    {
+      files: ["src/pages/**/*.vue"],
+      rules: {
+        "vue/multi-word-component-names": 0,
+      },
+    },
+  ],
   globals: {
     defineProps: "readonly",
     defineEmits: "readonly",
