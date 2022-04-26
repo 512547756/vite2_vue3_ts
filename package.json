@@ -14,7 +14,8 @@
   "dependencies": {
     "@vueuse/core": "^7.7.0",
     "axios": "^0.24.0",
-    "naive-ui": "^2.24.1",
+    "element-plus": "^2.1.10",
+    "js-cookie": "^3.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.0-rc.10",
     "unplugin-auto-import": "^0.6.1",

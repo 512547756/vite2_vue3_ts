@@ -4,18 +4,17 @@ import {
   Router,
   RouteRecordRaw,
 } from "vue-router";
-import exceptionRoutes from "@/router/route.exception";
-import asyncRoutes from "@/router/route.async";
+// import exceptionRoutes from "@/router/route.exception";
+// import asyncRoutes from "@/router/route.async";
 import commonRoutes from "@/router/route.common";
-import NProgress from "nprogress";
 
 const routes: Array<RouteRecordRaw> = [
   // 无鉴权的业务路由 ex:登录
   ...commonRoutes,
   // 带鉴权的业务路由
-  ...asyncRoutes,
+  // ...asyncRoutes,
   // 异常页必须放在路由匹配规则的最后
-  ...exceptionRoutes,
+  // ...exceptionRoutes,
 ];
 
 const router: Router = createRouter({
@@ -23,30 +22,20 @@ const router: Router = createRouter({
   routes,
 });
 
-// 路由前置钩子
-router.beforeEach((to, from, next) => {
-  console.log("全局路由前置守卫：to,from\n", to, from);
-  // 设置页面标题
-  document.title =
-    (to.meta.title as string) || (import.meta.env.VITE_APP_TITLE as string);
-
-  if (!NProgress.isStarted()) {
-    NProgress.start();
-  }
-  const title = to.meta && (to.meta.title as string);
-  if (title) {
-    document.title = title;
-  }
-  next();
-});
-
-// 路由后置钩子
-router.afterEach((to, from) => {
-  NProgress.done();
-  console.log(to, "to", from, "from");
-});
-
-// 导航守卫
-// onBeforeRouteLeave, onBeforeRouteUpdate
-
 export default router;
+
+/** 重置路由 */
+export function resetRouter() {
+  // 注意：所有动态路由路由必须带有 name 属性，否则可能会不能完全重置干净
+  try {
+    router.getRoutes().forEach((route) => {
+      const { name, meta } = route;
+      if (name && meta.roles?.length) {
+        router.hasRoute(name) && router.removeRoute(name);
+      }
+    });
+  } catch (error) {
+    // 强制刷新浏览器，不过体验不是很好
+    window.location.reload();
+  }
+}

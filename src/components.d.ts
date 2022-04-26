@@ -4,7 +4,11 @@
 
 declare module "vue" {
   export interface GlobalComponents {
-    NButton: typeof import("naive-ui")["NButton"];
+    ElButton: typeof import("element-plus/es")["ElButton"];
+    ElForm: typeof import("element-plus/es")["ElForm"];
+    ElFormItem: typeof import("element-plus/es")["ElFormItem"];
+    ElInput: typeof import("element-plus/es")["ElInput"];
+    ThemeSwitch: typeof import("./components/ThemeSwitch/index.vue")["default"];
   }
 }
 
