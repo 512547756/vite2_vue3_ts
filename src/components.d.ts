@@ -8,7 +8,7 @@ declare module "vue" {
     ElForm: typeof import("element-plus/es")["ElForm"];
     ElFormItem: typeof import("element-plus/es")["ElFormItem"];
     ElInput: typeof import("element-plus/es")["ElInput"];
-    ThemeSwitch: typeof import("./components/ThemeSwitch/index.vue")["default"];
+    SvgIcon: typeof import("./components/SvgIcon/index.vue")["default"];
   }
 }
 

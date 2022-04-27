@@ -10,6 +10,7 @@ import {
   ElementPlusResolver,
   VueUseComponentsResolver,
 } from "unplugin-vue-components/resolvers"; //插件需要的resolver 包含主流UI https://github.com/antfu/unplugin-vue-components/blob/main/src/core/resolvers/naive-ui.ts
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons"; // 解决Vue3使用svg
 
 const resolve = (dir: string) => path.join(__dirname, dir);
 
@@ -42,6 +43,11 @@ export default defineConfig({
       resolvers: [ElementPlusResolver(), VueUseComponentsResolver()], //自动按需引入我们在代码中使用到的组件和对应的样式
     }),
     // ===实现自动按需加载 end===
+    /** svg插件 */
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), "src/icons/svg")],
+      symbolId: "icon-[dir]-[name]",
+    }),
   ],
   base: "./", // 打包路径
   css: {
