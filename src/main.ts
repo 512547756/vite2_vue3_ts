@@ -4,6 +4,7 @@ import router from "./router/index";
 import "@/router/permission";
 import store from "./store";
 import * as directives from "@/directives";
+import "normalize.css";
 
 const app = createApp(App);
 console.log(directives);
