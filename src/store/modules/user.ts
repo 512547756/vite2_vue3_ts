@@ -27,9 +27,10 @@ export const useUserStore = defineStore({
     /** 登录 */
     async login(userInfo: { username: string; password: string | number }) {
       const res = await loginApi.login({
-        userName: userInfo.username.trim(),
-        passWord: userInfo.password,
+        loginId: userInfo.username.trim(),
+        loginPwd: userInfo.password,
       });
+      console.log(res);
       setToken(res.data.accessToken);
       this.token = res.data.accessToken;
     },

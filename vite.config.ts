@@ -81,7 +81,8 @@ export default defineConfig({
     // proxy: {
     //   "/api": {
     //     // 本地 9999 前端代码的接口 代理到 8888 的服务端口
-    //     target: "http://localhost:8888/",
+    //     target: "http://www.aaa.com",
+    //     secure: false, // 忽略证书检查
     //     changeOrigin: true, // 允许跨域
     //     rewrite: (path) => path.replace("/api/", "/"),
     //   },

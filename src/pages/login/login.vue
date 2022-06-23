@@ -61,12 +61,13 @@ interface ILoginForm {
   /** 验证码 */
 }
 const router = useRouter();
+
 const loading = ref<boolean>(false);
 const loginFormDom = ref<any>();
 const codeUrl = ref<string>("");
 const loginForm = reactive<ILoginForm>({
-  username: "admin",
-  password: "123456",
+  username: "itmaster",
+  password: "123",
 });
 const loginRules = reactive({
   username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
@@ -79,14 +80,19 @@ const handleLogin = () => {
   loginFormDom.value.validate(async (valid: boolean) => {
     if (valid) {
       loading.value = true;
-      await useUserStore().login({
-        username: loginForm.username,
-        password: loginForm.password,
-      });
-      loading.value = false;
-      router.push({ path: "/" }).catch((err) => {
-        console.warn(err);
-      });
+      try {
+        await useUserStore().login({
+          username: loginForm.username,
+          password: loginForm.password,
+        });
+        loading.value = false;
+        router.push({ path: "/" }).catch((err) => {
+          console.warn(err);
+        });
+      } catch (error) {
+        loading.value = false;
+        loginForm.password = "";
+      }
     } else {
       return false;
     }
